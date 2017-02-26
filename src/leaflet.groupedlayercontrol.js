@@ -1,5 +1,13 @@
 /* global L */
 
+
+(function() {
+
+// define Leaflet for Node module pattern loaders, including Browserify
+if (typeof module === 'object' && typeof module.exports === 'object') {
+	module.exports = L;
+}
+
 // A layer control which provides for layer groupings.
 // Author: Ishmael Smyrnow
 L.Control.GroupedLayers = L.Control.extend({
@@ -372,3 +380,5 @@ L.Control.GroupedLayers = L.Control.extend({
 L.control.groupedLayers = function (baseLayers, groupedOverlays, options) {
   return new L.Control.GroupedLayers(baseLayers, groupedOverlays, options);
 };
+
+}());
